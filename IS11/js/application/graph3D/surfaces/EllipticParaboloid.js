@@ -55,14 +55,16 @@ Surface.prototype.EllipticParaboloid = (count = 20, p = 2, q = 2) => {
         }
     }
 	 // раскрасить полигоны сеткой
-    for (let i = 0; i < polygones.length; ++i) {
+     for (let i = 0; i < polygones.length; ++i) {
         const a = Math.floor(i / count);
-        if (i % 2 == 0) {
-            polygones[i].color = {r: 255, g: 255, b: 255};
-        }
-        else {
+        if ((i % 2 == 0) + (a % 2)) {
             polygones[i].color = {r: 0, g: 0, b: 0};
         }
+        else {
+             polygones[i].color = {r: 255, g: 255, b: 255};
+        }
+		
+		
     }
     return new Subject(points, edges, polygones);
 }
